@@ -4,23 +4,6 @@ on:
   push:
     branches:
       - "master"
-    paths:
-      - ".github/workflows*"
-      - ".github/template*"
-      - "package.json"
-      - "src/**"
-      - "tests/*"
-      - "tsconfig.json"
-      - "tslint.json"
-  pull_request:
-    paths:
-      - ".github/workflows*"
-      - ".github/template*"
-      - "package.json"
-      - "src/**"
-      - "tests/*"
-      - "tsconfig.json"
-      - "tslint.json"
 
 jobs:
   tests:
