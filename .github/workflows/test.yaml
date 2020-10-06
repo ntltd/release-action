@@ -24,12 +24,12 @@ on:
 
 jobs:
   tests:
-    name: unit test
+    name: tests
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout git repository
+      - name: checkout repository
         uses: actions/checkout@v2
-      - name: Lint code
+      - name: linter
         run: yarn lint
-      - name: Test code
+      - name: jest
         run: yarn test

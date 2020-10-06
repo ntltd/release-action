@@ -11,9 +11,9 @@ jobs:
     name: integration test
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout git repository
+      - name: checkout repository
         uses: actions/checkout@v2
-      - name: Create Release
+      - name: create release
         uses: ntltd/release-generator@master
         with:
           baseTag: ${{ github.event.release.tag_name }}
