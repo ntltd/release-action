@@ -3,3 +3,4 @@
 .yarn/build-state.yml
 coverage
 .DS_Store
+.idea
