@@ -1,6 +1,7 @@
 <h1 align="center">Release Generator</h1>
 <p align="center">An action wich creates a Github release with parsed commits into a given Markdown template</p>
 <p align="center">
+  <a href="https://github.com/ntltd/release-generator/actions?query=workflow%3Atest"><img src="https://github.com/ntltd/release-generator/workflows/test/badge.svg?branch=master" alt="test" height="20" /></a>
   <a href="https://github.com/ntltd/release-generator/actions?query=workflow%3Arelease"><img src="https://github.com/ntltd/release-generator/workflows/release/badge.svg?branch=master" alt="Release" height="20" /></a>
 </p>
 

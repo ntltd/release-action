@@ -1,0 +1,35 @@
+name: "test"
+
+on:
+  push:
+    branches:
+      - "master"
+    paths:
+      - ".github/workflows*"
+      - ".github/template*"
+      - "package.json"
+      - "src/**"
+      - "tests/*"
+      - "tsconfig.json"
+      - "tslint.json"
+  pull_request:
+    paths:
+      - ".github/workflows*"
+      - ".github/template*"
+      - "package.json"
+      - "src/**"
+      - "tests/*"
+      - "tsconfig.json"
+      - "tslint.json"
+
+jobs:
+  tests:
+    name: unit test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout git repository
+        uses: actions/checkout@v2
+      - name: Lint code
+        run: yarn lint
+      - name: Test code
+        run: yarn test
