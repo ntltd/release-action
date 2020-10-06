@@ -1,9 +1,9 @@
 # Release Generator
-*Forked from [ntltd/release-generator](https://github.com/ntltd/release-generator)*
+*Forked from [minddocdev/mou-release-action](https://github.com/minddocdev/mou-release-action)*
 
 Creates a Github release with parsed commits into a given Markdown template.
 
-[![release](https://github.com/ntltd/release-generator/workflows/release/badge.svg)](https://github.com/ntltd/release-generator/actions?workflow=main)
+![release](https://github.com/ntltd/release-generator/workflows/release/badge.svg?branch=master)
 
 Actually, the `release-generator` action creates [releases](https://github.com/ntltd/release-generator/releases)
 for `release-generator`.
