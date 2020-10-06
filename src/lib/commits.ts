@@ -63,7 +63,7 @@ export async function commitParser(
     },
     // A code change that neither fixes a bug nor adds a feature
     refactor: {
-      title: '**:mountain: Refactors**',
+      title: '**:arrows_counterclockwise: Refactors**',
       commits: [],
     },
     // Adding missing tests or correcting existing tests
@@ -73,7 +73,7 @@ export async function commitParser(
     },
     // Changes that affect the build system or external development dependencies
     chore: {
-      title: '**:gear: Maintenance**',
+      title: '**:gear: Chore**',
       commits: [],
     },
     // As an alternative to 'chore', but with very similar meaning

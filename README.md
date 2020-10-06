@@ -290,29 +290,29 @@ If your commits follow the expected [commit style](#commit-types)
 the action will automatically categorize them in `$CHANGES` like in the following example:
 
 ```md
-## :alien: Changelog
+## Changelog
 
 - Uncategorized commit - [62ec8ea7](https://commiturl)([@darioblanco](https://authorurl))
 
-**:zap: Features**
+**:sparkles: Features**
 - Super feature - [62ec8ea7](https://commiturl)([@darioblanco](https://authorurl))
 
-**:wrench: Fixes**
+**:bug: Fixes**
 - My fix - [62ec8ea7](https://commiturl)([@darioblanco](https://authorurl))
 
 **:books: Documentation**
 - Document everything - [62ec8ea7](https://commiturl)([@darioblanco](https://authorurl))
 
-**:nail_care: Style changes**
+**:art: Style changes**
 - Awesome style - [62ec8ea7](https://commiturl)([@darioblanco](https://authorurl))
 
-**:mountain: Refactors**
+**:arrows_counterclockwise: Refactors**
 - One does not simply refactor - [62ec8ea7](https://commiturl)([@darioblanco](https://authorurl))
 
-**:traffic_light: Tests**
+**:vertical_traffic_light: Tests**
 - Tests are good - [62ec8ea7](https://commiturl)([@darioblanco](https://authorurl))
 
-**:construction: Maintenance**
+**:gear: Chore**
 - Somebody has to keep things going - [62ec8ea7](https://commiturl)([@darioblanco](https://authorurl))
 ```
 
@@ -326,7 +326,7 @@ Of course, in case you do not want to follow a specific commit style at all,
 all changes will rendered without any fancy categorization:
 
 ```md
-## :alien: Changelog
+## Changelog
 
 - Uncategorized commit 1 - [62ec8ea7](https://commiturl)([@darioblanco](https://authorurl))
 - Uncategorized commit 2 - [62ec8ea7](https://commiturl)([@darioblanco](https://authorurl))

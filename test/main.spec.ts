@@ -17,7 +17,7 @@ jest.mock('ntltd/release-generator/lib/version');
 
 describe('run', () => {
   // Required input values
-  const templatePath = 'RELEASE_DRAFT/default.md';
+  const templatePath = 'templates/release.md';
   const token = 'faketoken';
   // Default input values
   const taskPrefix = 'JIRA-';
