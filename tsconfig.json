@@ -6,8 +6,8 @@
     "moduleResolution": "node",
     "noImplicitAny": false,
     "paths": {
-      "@minddocdev/mou-release-action/*": ["./src/*"],
-      "@minddocdev/mou-release-action/test/*": ["./test/*"]
+      "ntltd/release-generator/*": ["./src/*"],
+      "ntltd/release-generator/test/*": ["./test/*"]
     },
     "rootDir": ".",
     "strict": true,

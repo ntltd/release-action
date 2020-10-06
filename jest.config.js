@@ -14,8 +14,8 @@ module.exports = {
   },
   moduleFileExtensions: ['js', 'ts'],
   moduleNameMapper: {
-    '^@minddocdev/mou-release-action/(.*)$': '<rootDir>/src/$1',
-    '^@minddocdev/mou-release-action/test/(.*)$': '<rootDir>/test/$1',
+    '^ntltd/release-generator/(.*)$': '<rootDir>/src/$1',
+    '^ntltd/release-generator/test/(.*)$': '<rootDir>/test/$1',
   },
   preset: 'ts-jest',
   rootDir: path.resolve(__dirname),

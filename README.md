@@ -1,5 +1,5 @@
 # Release Generator
-*Forked from [minddocdev/mou-release-action](https://github.com/minddocdev/mou-release-action)*
+*Forked from [ntltd/release-generator](https://github.com/ntltd/release-generator)*
 
 Creates a Github release with parsed commits into a given Markdown template.
 
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create Release
-        uses: minddocdev/mou-release-action@master
+        uses: ntltd/release-generator@master
         with:
           templatePath: RELEASE_DRAFT/default.md
           token: ${{ github.token }}
@@ -49,14 +49,8 @@ jobs:
     steps:
       - name: Checkout git repository
         uses: actions/checkout@master
-      - name: Bump version and push tag
-        uses: minddocdev/mou-version-action@master
-        id: bump_version
-        with:
-          prefix: ${{ env.APP }}@
-          token: ${{ github.token }}
       - name: Create Release
-        uses: minddocdev/mou-release-action@master
+        uses: ntltd/release-generator@master
         with:
           app: ${{ env.APP }}
           baseTag: my-production-deployed-tag
@@ -89,7 +83,7 @@ jobs:
       - name: Checkout git repository
         uses: actions/checkout@master
       - name: Create Release
-        uses: minddocdev/mou-release-action@master
+        uses: ntltd/release-generator@master
         with:
           app: ${{ env.APP }}
           prerelease: false

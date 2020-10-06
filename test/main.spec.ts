@@ -2,18 +2,18 @@ import { getInput, setFailed } from '@actions/core';
 import { GitHub } from '@actions/github';
 import {
   retrieveLastReleasedVersion, bumpVersion, VersionType,
-} from '@minddocdev/mou-release-action/lib/version';
-import { run } from '@minddocdev/mou-release-action/main';
+} from 'ntltd/release-generator/lib/version';
+import { run } from 'ntltd/release-generator/main';
 import {
   createGitTag, createGithubRelease, renderReleaseBody, renderReleaseName,
-} from '@minddocdev/mou-release-action/lib/release';
-import { commitParser } from '@minddocdev/mou-release-action/lib/commits';
+} from 'ntltd/release-generator/lib/release';
+import { commitParser } from 'ntltd/release-generator/lib/commits';
 
 jest.mock('@actions/github');
 jest.mock('@actions/core');
-jest.mock('@minddocdev/mou-release-action/lib/commits');
-jest.mock('@minddocdev/mou-release-action/lib/release');
-jest.mock('@minddocdev/mou-release-action/lib/version');
+jest.mock('ntltd/release-generator/lib/commits');
+jest.mock('ntltd/release-generator/lib/release');
+jest.mock('ntltd/release-generator/lib/version');
 
 describe('run', () => {
   // Required input values

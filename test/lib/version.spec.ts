@@ -1,7 +1,7 @@
 import { setOutput } from '@actions/core';
 import {
   retrieveLastReleasedVersion, bumpVersion, VersionType,
-} from '@minddocdev/mou-release-action/lib/version';
+} from 'ntltd/release-generator/lib/version';
 
 jest.mock('@actions/github', () => ({
   context: {

@@ -3,7 +3,7 @@ import { setOutput } from '@actions/core';
 
 import {
   createGithubRelease, renderReleaseBody, createGitTag, renderReleaseName
-} from '@minddocdev/mou-release-action/lib/release';
+} from 'ntltd/release-generator/lib/release';
 
 jest.mock('path');
 jest.mock('@actions/github', () => ({

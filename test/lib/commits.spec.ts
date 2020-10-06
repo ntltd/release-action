@@ -1,6 +1,6 @@
 import { setOutput } from '@actions/core';
-import { commitParser } from '@minddocdev/mou-release-action/lib/commits';
-import { VersionType } from '@minddocdev/mou-release-action/lib/version';
+import { commitParser } from 'ntltd/release-generator/lib/commits';
+import { VersionType } from 'ntltd/release-generator/lib/version';
 
 jest.mock('@actions/github', () => ({
   context: {

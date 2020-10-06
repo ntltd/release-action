@@ -5270,47 +5270,6 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"mou-release-action@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "mou-release-action@workspace:."
-  dependencies:
-    "@actions/core": ^1.2.3
-    "@actions/github": ^2.1.1
-    "@types/eslint-plugin-prettier": ^2.2.0
-    "@types/jest": ^25.1.3
-    "@types/node": ^13.7.7
-    "@types/prettier": 1.19.0
-    "@types/semver": ^7.1.0
-    "@typescript-eslint/eslint-plugin": ^2.22.0
-    "@typescript-eslint/parser": ^2.22.0
-    "@yarnpkg/pnpify": ^2.0.0-rc.18
-    eslint: ^6.8.0
-    eslint-config-airbnb-typescript: ^7.0.0
-    eslint-config-prettier: ^6.10.0
-    eslint-import-resolver-node: ^0.3.3
-    eslint-plugin-eslint-comments: ^3.1.2
-    eslint-plugin-import: ^2.20.1
-    eslint-plugin-jest: ^23.8.1
-    eslint-plugin-jsx-a11y: ^6.2.3
-    eslint-plugin-node: ^11.0.0
-    eslint-plugin-prettier: ^3.1.2
-    eslint-plugin-react: ^7.18.3
-    husky: ^4.2.3
-    jest: ^25.1.0
-    jest-config: ^25.1.0
-    jest-environment-node: ^25.1.0
-    prettier: ^1.19.1
-    prettier-eslint: ^9.0.1
-    semver: ^7.1.3
-    ts-jest: ^25.2.1
-    ts-loader: ^6.2.1
-    tsconfig-paths-webpack-plugin: ^3.2.0
-    typescript: ^3.8.3
-    webpack: ^5.0.0-beta.14
-    webpack-cli: ^3.3.11
-  languageName: unknown
-  linkType: soft
-
 "move-concurrently@npm:^1.0.1":
   version: 1.0.1
   resolution: "move-concurrently@npm:1.0.1"
@@ -6288,6 +6247,47 @@ fsevents@^2.1.2:
   checksum: 2/9528ff2d4d4c85c80ae866c558d8b61ae7da69dad240f4a8d69e73be51a04d466e5c6808e06837737eaf8ec499d41126ab397693ab5d0a1039376855ce331566
   languageName: node
   linkType: hard
+
+"release-generator@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "release-generator@workspace:."
+  dependencies:
+    "@actions/core": ^1.2.3
+    "@actions/github": ^2.1.1
+    "@types/eslint-plugin-prettier": ^2.2.0
+    "@types/jest": ^25.1.3
+    "@types/node": ^13.7.7
+    "@types/prettier": 1.19.0
+    "@types/semver": ^7.1.0
+    "@typescript-eslint/eslint-plugin": ^2.22.0
+    "@typescript-eslint/parser": ^2.22.0
+    "@yarnpkg/pnpify": ^2.0.0-rc.18
+    eslint: ^6.8.0
+    eslint-config-airbnb-typescript: ^7.0.0
+    eslint-config-prettier: ^6.10.0
+    eslint-import-resolver-node: ^0.3.3
+    eslint-plugin-eslint-comments: ^3.1.2
+    eslint-plugin-import: ^2.20.1
+    eslint-plugin-jest: ^23.8.1
+    eslint-plugin-jsx-a11y: ^6.2.3
+    eslint-plugin-node: ^11.0.0
+    eslint-plugin-prettier: ^3.1.2
+    eslint-plugin-react: ^7.18.3
+    husky: ^4.2.3
+    jest: ^25.1.0
+    jest-config: ^25.1.0
+    jest-environment-node: ^25.1.0
+    prettier: ^1.19.1
+    prettier-eslint: ^9.0.1
+    semver: ^7.1.3
+    ts-jest: ^25.2.1
+    ts-loader: ^6.2.1
+    tsconfig-paths-webpack-plugin: ^3.2.0
+    typescript: ^3.8.3
+    webpack: ^5.0.0-beta.14
+    webpack-cli: ^3.3.11
+  languageName: unknown
+  linkType: soft
 
 "remove-trailing-separator@npm:^1.0.1":
   version: 1.1.0
