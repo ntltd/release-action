@@ -42,7 +42,9 @@ export async function run() {
     const releaseTag =
       core.getInput('releaseTag', { required: false }) ||
       (await bumpVersion(github, tagPrefix, nextVersionType, baseTag));
-    if (pushTag) createGitTag(github, releaseTag);
+    if (pushTag) {
+      createGitTag(github, releaseTag);
+    }
     // Won't replace it if release tag is given manually
     const releaseVersion = releaseTag.replace(tagPrefix, '');
     const releaseName =

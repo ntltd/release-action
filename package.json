@@ -1,6 +1,6 @@
 {
-  "name": "mou-release-action",
-  "version": "0.0.0",
+  "name": "release-generator",
+  "version": "0.0.1",
   "private": true,
   "description": "Github Action that creates releases",
   "main": "src/index.ts",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/minddocdev/mou-release-action.git"
+    "url": "git+https://github.com/ntltd/mou-release-action.git"
   },
   "keywords": [
     "actions",
@@ -19,7 +19,7 @@
     "setup",
     "release"
   ],
-  "author": "MindDoc Health GmbH",
+  "author": "ntltd",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.3",

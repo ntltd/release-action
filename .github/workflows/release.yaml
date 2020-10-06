@@ -6,7 +6,7 @@ on:
       - "master"
     paths:
       - ".github/workflows/main.yaml"
-      - ".github/RELEASE_DRAFT*"
+      - ".github/template*"
       - "package.json"
       - "src/**"
       - "tests/*"
@@ -15,7 +15,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/main.yaml"
-      - ".github/RELEASE_DRAFT*"
+      - ".github/template*"
       - "package.json"
       - "src/**"
       - "tests/*"
@@ -43,5 +43,9 @@ jobs:
       - name: Create Release
         uses: minddocdev/mou-release-action@master
         with:
-          templatePath: RELEASE_DRAFT/default.md
+          baseTag: ${{ github.event.release.tag_name }}
+          prerelease: false
+          draft: false
+          releaseName: ${{ github.event.release.tag_name }}
+          templatePath: templates/release.md
           token: ${{ github.token }}

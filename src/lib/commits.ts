@@ -14,7 +14,11 @@ interface Commit {
 
 /**
  * Generate a Markdown string based on commit information.
- * @param commits - The JSON array with Github commit info.
+ * @param github
+ * @param baseRef
+ * @param taskPrefix
+ * @param taskBaseUrl
+ * @param commitScope
  */
 export async function commitParser(
   github: GitHub,
@@ -28,22 +32,23 @@ export async function commitParser(
   tasks: string;
   pullRequests: string;
 }> {
+  // https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type
   const commitGroups: {
     [index: string]: { title: string; commits: Commit[] };
   } = {
     // A new feature
     feat: {
-      title: '**:zap: Features**',
+      title: '**:sparkles: Features**',
       commits: [],
     },
     // A bug fix
     fix: {
-      title: '**:wrench: Fixes**',
+      title: '**:bug: Fixes**',
       commits: [],
     },
     // A code change that improves performance
     perf: {
-      title: '**:runner: Performance**',
+      title: '**:rocket: Performance**',
       commits: [],
     },
     // Documentation only changes
@@ -53,7 +58,7 @@ export async function commitParser(
     },
     // Changes that do not affect the meaning of the code (lint changes)
     style: {
-      title: '**:nail_care: Style**',
+      title: '**:art: Style**',
       commits: [],
     },
     // A code change that neither fixes a bug nor adds a feature
@@ -63,22 +68,22 @@ export async function commitParser(
     },
     // Adding missing tests or correcting existing tests
     test: {
-      title: '**:traffic_light: Tests**',
+      title: '**:vertical_traffic_light: Tests**',
       commits: [],
     },
     // Changes that affect the build system or external development dependencies
     chore: {
-      title: '**:construction: Maintenance**',
+      title: '**:gear: Maintenance**',
       commits: [],
     },
     // As an alternative to 'chore', but with very similar meaning
     build: {
-      title: '**:construction_worker: Build**',
+      title: '**:package: Build**',
       commits: [],
     },
     // Changes for CI configuration files and scripts (e.g. Github CI, helm values...)
     ci: {
-      title: '**:runner: CI**',
+      title: '**:robot: CI**',
       commits: [],
     },
   };
@@ -135,7 +140,7 @@ export async function commitParser(
     // Retrieve PR link information
     const prMatch = prRegExp.exec(message);
     if (prMatch)
-      prMatch.slice(1).forEach(pr => pullRequests.push(pr.replace(/(\(|\)|#)/g, '')));
+      prMatch.slice(1).forEach(pr => pullRequests.push(pr.replace(/([()#])/g, '')));
     // Retrieve task information
     // eslint-disable-next-line @typescript-eslint/prefer-regexp-exec
     const taskMatch = message.match(taskRegExp);
