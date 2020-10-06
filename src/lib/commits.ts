@@ -130,11 +130,23 @@ export async function commitParser(
   const majorRegExp = new RegExp(`(#MAJOR$)`, 'gmi');
   commits.forEach(githubCommit => {
     const {
-      author: { login: username, html_url: userUrl },
+      author,
+      committer,
       html_url: commitUrl,
       commit: { message },
       sha,
     } = githubCommit;
+    let username = '';
+    let userUrl = '';
+
+    if (author) {
+      username = author.login;
+      userUrl = author.html_url;
+    } else if (committer) {
+      username = committer.login;
+      userUrl = committer.html_url;
+    }
+
     const commit: Commit = { username, userUrl, commitUrl, message, sha };
 
     // Retrieve PR link information
@@ -187,7 +199,7 @@ export async function commitParser(
     changesMd = `${changesMd}- ${message} - [${sha.substring(
       0,
       8,
-    )}](${commitUrl})([@${username}](${userUrl}))\n`;
+    )}](${commitUrl})${username && userUrl ? ` ([@${username}](${userUrl}))` : ''}\n`;
     // Add to global commit sha list
     changes.push(sha);
   };
