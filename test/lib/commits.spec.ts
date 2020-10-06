@@ -13,8 +13,13 @@ jest.mock('@actions/github', () => ({
 jest.mock('@actions/core');
 
 const author = {
-  login: 'darioblanco',
+  login: 'author',
   html_url: 'https://authorurl',
+};
+
+const committer = {
+  login: 'committer',
+  html_url: 'https://committerurl',
 };
 
 // eslint-disable-next-line @typescript-eslint/camelcase
@@ -205,6 +210,83 @@ describe('commit', () => {
         commits: [
           {
             author,
+            html_url,
+            sha,
+            commit: {
+              message: commitMessage,
+            },
+          },
+        ],
+      },
+    };
+    const github = { repos: { compareCommits: jest.fn(() => compareSquashedCommitsResponse) } };
+    const { changes, nextVersionType, tasks, pullRequests } = await commitParser(
+      github as any,
+      'v1.0.0',
+      'JIRA-',
+    );
+    expect(setOutput).toBeCalledWith(
+      'changes',
+      '["62ec8ea713fdf14e4abaef3d7d5138194dec49ce",' +
+      '"62ec8ea713fdf14e4abaef3d7d5138194dec49ce",' +
+      '"62ec8ea713fdf14e4abaef3d7d5138194dec49ce"]',
+    );
+    expect(setOutput).toBeCalledWith('tasks', '[]');
+    expect(setOutput).toBeCalledWith('pull_requests', '[]');
+    expect(changes).toMatchSnapshot();
+    expect(nextVersionType).toBe(VersionType.patch);
+    expect(tasks).toBe('');
+    expect(pullRequests).toBe('');
+  });
+
+  test('render github squashed commits without author, scope, PRs and tasks', async () => {
+    const commitMessage =
+      'Title of my PR\n\n' +
+      '* set login endpoint controller\n\n' +
+      '* add integration test for login endpoint\n\n';
+    const compareSquashedCommitsResponse = {
+      data: {
+        commits: [
+          {
+            committer,
+            html_url,
+            sha,
+            commit: {
+              message: commitMessage,
+            },
+          },
+        ],
+      },
+    };
+    const github = { repos: { compareCommits: jest.fn(() => compareSquashedCommitsResponse) } };
+    const { changes, nextVersionType, tasks, pullRequests } = await commitParser(
+      github as any,
+      'v1.0.0',
+      'JIRA-',
+    );
+    expect(setOutput).toBeCalledWith(
+      'changes',
+      '["62ec8ea713fdf14e4abaef3d7d5138194dec49ce",' +
+      '"62ec8ea713fdf14e4abaef3d7d5138194dec49ce",' +
+      '"62ec8ea713fdf14e4abaef3d7d5138194dec49ce"]',
+    );
+    expect(setOutput).toBeCalledWith('tasks', '[]');
+    expect(setOutput).toBeCalledWith('pull_requests', '[]');
+    expect(changes).toMatchSnapshot();
+    expect(nextVersionType).toBe(VersionType.patch);
+    expect(tasks).toBe('');
+    expect(pullRequests).toBe('');
+  });
+
+  test('render github squashed commits without author nor committer, scope, PRs and tasks', async () => {
+    const commitMessage =
+      'Title of my PR\n\n' +
+      '* set login endpoint controller\n\n' +
+      '* add integration test for login endpoint\n\n';
+    const compareSquashedCommitsResponse = {
+      data: {
+        commits: [
+          {
             html_url,
             sha,
             commit: {
