@@ -1,17 +1,16 @@
-# MOU Release Action
+# Release Generator
+*Forked from [minddocdev/mou-release-action](https://github.com/minddocdev/mou-release-action)*
 
 Creates a Github release with parsed commits into a given Markdown template.
 
-[![main](https://github.com/minddocdev/mou-release-action/workflows/main/badge.svg)](https://github.com/minddocdev/mou-release-action/actions?workflow=main)
+[![release](https://github.com/ntltd/release-generator/workflows/release/badge.svg)](https://github.com/ntltd/release-generator/actions?workflow=main)
 
-Actually, the `mou-release-action` creates [releases](https://github.com/minddocdev/mou-release-action/releases)
-for `mou-release-action`.
-
-![xzibit](https://i.imgur.com/FP1KQOR.png?1)
+Actually, the `release-generator` action creates [releases](https://github.com/ntltd/release-generator/releases)
+for `release-generator`.
 
 ## Usage
 
-Simplest usage, (single application per repository), and the action will check for
+The simplest usage, (single application per repository), and the action will check for
 the latest published release that matches the `v` prefix, create a changelog for all the
 commits in that diff and suggest a version bump to `prerelease` (as by default the `prerelease`
 draft checkbox will be filled).
