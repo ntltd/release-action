@@ -1,12 +1,17 @@
-# Release Generator
-*Forked from [minddocdev/mou-release-action](https://github.com/minddocdev/mou-release-action)*
+<h1 align="center">Release Generator</h1>
+<p align="center">An action wich creates a Github release with parsed commits into a given Markdown template</p>
+<p align="center">
+  <a href="https://github.com/ntltd/release-generator/actions?query=workflow%3Arelease"><img src="https://github.com/ntltd/release-generator/workflows/release/badge.svg?branch=master" alt="Release" height="20" /></a>
+</p>
 
-Creates a Github release with parsed commits into a given Markdown template.
 
-![release](https://github.com/ntltd/release-generator/workflows/release/badge.svg?branch=master)
+## Information
 
-Actually, the `release-generator` action creates [releases](https://github.com/ntltd/release-generator/releases)
-for `release-generator`.
+The `release-generator` action creates [releases](https://github.com/ntltd/release-generator/releases)
+for `release-generator` itself. Check [`.github` folder](./.github) for the example.
+
+*This project is a fork from [minddocdev/mou-release-action](https://github.com/minddocdev/mou-release-action)*.
+
 
 ## Usage
 
