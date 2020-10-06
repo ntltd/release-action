@@ -3,12 +3,11 @@ name: "release"
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*.*.*'
 
 jobs:
-  integration:
-    if: github.ref == 'refs/heads/master'
-    name: integration test
+  release:
+    name: release
     runs-on: ubuntu-latest
     steps:
       - name: checkout repository
