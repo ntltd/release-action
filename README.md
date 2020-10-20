@@ -121,8 +121,7 @@ jobs:
 | **baseTag** | `false` | The tag that will be used as base for git commit comparison, instead of the automatic detection of latest published release. The commits will be formatted into a Markdown list and replaced into the `$CHANGES` variable for the given `templatePath` template file. |
 | **bumpProtection** | `false`<br />(default `false`) | Propose PATCH version bumps whenever a MINOR or MAJOR is detected in a diff that had a previous MINOR or MAJOR bump. See [multiple minor and major bump protection](#multiple-minor-and-major-bump-protection). |
 | **draft** | `false`<br />(default `true`) | Publish release draft. |
-| **prerelease** | `false`<br />(default ``) | Mark release as prerelease when creating. This will ignore `major`, `minor` and `patch` bump suggestions and propose a [prerelease](https://github.com/npm/node-semver#prerelease-tags).
- |
+| **prerelease** | `false` | Mark release as prerelease when creating. This will ignore `major`, `minor` and `patch` bump suggestions and propose a [prerelease](https://github.com/npm/node-semver#prerelease-tags). |
 | **pushTag** | `false`<br />(default `false`) | Creates and pushes the automatic calculated tag before creating the release. Useful if you want the action to handle tags for you when publishing drafts. By default, a release draft won't create the tag, which only happens when it is published. |
 | **releaseName** | `false`<br />(default `<app> <version>`) | The title of the release. |
 | **releaseTag** | `true` | The git tag that belongs to the release. |
