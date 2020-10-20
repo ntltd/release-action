@@ -46,6 +46,11 @@ export async function commitParser(
       title: '**:bug: Fixes**',
       commits: [],
     },
+    // A bug fix
+    hotfix: {
+      title: '**:fire_extinguisher: Hotfixes**',
+      commits: [],
+    },
     // A code change that improves performance
     perf: {
       title: '**:rocket: Performance**',
