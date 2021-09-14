@@ -1,7 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`commit render commits diff for each category 1`] = `
-"- Uncategorized commit - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
+"**:bookmark: Release**
+- Merge tag 'v1.0.0' into develop - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
+- :bookmark: 1.0.0 - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
+- Merge branch 'release/1.0.0' - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
+- 1.0.0 - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
 
 **:sparkles: Features**
 - Super feature - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
@@ -26,12 +30,17 @@ exports[`commit render commits diff for each category 1`] = `
 
 **:gear: Chore**
 - Somebody has to keep things going - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
+- Bump \\"dependency\\" to 3.2.1 - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
 
 **:package: Build**
 - Like chore but fancier - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
 
 **:robot: CI**
-- Ok this is a CI change - [62ec8ea7](https://commiturl) ([@author](https://authorurl))"
+- Ok this is a CI change - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
+
+**:link: Others**
+- Uncategorized commit - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
+- Other commit to be uncategorized - [62ec8ea7](https://commiturl) ([@author](https://authorurl))"
 `;
 
 exports[`commit render commits diff when scope is required 1`] = `
@@ -43,9 +52,7 @@ exports[`commit render commits diff when scope is required 1`] = `
 `;
 
 exports[`commit render gh squashed commits with scope, PRs and tasks for http://my-task-url 1`] = `
-"- Set values for staging and production - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
-
-**:sparkles: Features**
+"**:sparkles: Features**
 - Main commit of my PR (#1716) - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
 - Set login endpoint controller - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
 - Set expiration of the cookie to the amount of time of the token - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
@@ -58,13 +65,14 @@ exports[`commit render gh squashed commits with scope, PRs and tasks for http://
 - Add additional fake performance - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
 
 **:vertical_traffic_light: Tests**
-- Add integration test for login endpoint #MAJOR - [62ec8ea7](https://commiturl) ([@author](https://authorurl))"
+- Add integration test for login endpoint #MAJOR - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
+
+**:link: Others**
+- Set values for staging and production - [62ec8ea7](https://commiturl) ([@author](https://authorurl))"
 `;
 
 exports[`commit render gh squashed commits with scope, PRs and tasks for undefined 1`] = `
-"- Set values for staging and production - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
-
-**:sparkles: Features**
+"**:sparkles: Features**
 - Main commit of my PR (#1716) - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
 - Set login endpoint controller - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
 - Set expiration of the cookie to the amount of time of the token - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
@@ -77,23 +85,29 @@ exports[`commit render gh squashed commits with scope, PRs and tasks for undefin
 - Add additional fake performance - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
 
 **:vertical_traffic_light: Tests**
-- Add integration test for login endpoint #MAJOR - [62ec8ea7](https://commiturl) ([@author](https://authorurl))"
+- Add integration test for login endpoint #MAJOR - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
+
+**:link: Others**
+- Set values for staging and production - [62ec8ea7](https://commiturl) ([@author](https://authorurl))"
 `;
 
 exports[`commit render github squashed commits without author nor committer, scope, PRs and tasks 1`] = `
-"- Title of my PR - [62ec8ea7](https://commiturl)
+"**:link: Others**
+- Title of my PR - [62ec8ea7](https://commiturl)
 - Set login endpoint controller - [62ec8ea7](https://commiturl)
 - Add integration test for login endpoint - [62ec8ea7](https://commiturl)"
 `;
 
 exports[`commit render github squashed commits without author, scope, PRs and tasks 1`] = `
-"- Title of my PR - [62ec8ea7](https://commiturl) ([@committer](https://committerurl))
+"**:link: Others**
+- Title of my PR - [62ec8ea7](https://commiturl) ([@committer](https://committerurl))
 - Set login endpoint controller - [62ec8ea7](https://commiturl) ([@committer](https://committerurl))
 - Add integration test for login endpoint - [62ec8ea7](https://commiturl) ([@committer](https://committerurl))"
 `;
 
 exports[`commit render github squashed commits without scope, PRs and tasks 1`] = `
-"- Title of my PR - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
+"**:link: Others**
+- Title of my PR - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
 - Set login endpoint controller - [62ec8ea7](https://commiturl) ([@author](https://authorurl))
 - Add integration test for login endpoint - [62ec8ea7](https://commiturl) ([@author](https://authorurl))"
 `;

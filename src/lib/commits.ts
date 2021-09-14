@@ -3,7 +3,7 @@ import * as core from '@actions/core';
 
 import { VersionType } from './version';
 
-// Octokit's commit type subset
+// Commit type subset
 interface Commit {
   username: string;
   userUrl: string;
@@ -36,6 +36,11 @@ export async function commitParser(
   const commitGroups: {
     [index: string]: { title: string; commits: Commit[] };
   } = {
+    // Release related changes
+    release: {
+      title: '**:bookmark: Release**',
+      commits: [],
+    },
     // A new feature
     feat: {
       title: '**:sparkles: Features**',
@@ -91,8 +96,13 @@ export async function commitParser(
       title: '**:robot: CI**',
       commits: [],
     },
+    // Changes for CI configuration files and scripts (e.g. Github CI, helm values...)
+    others: {
+      title: '**:link: Others**',
+      commits: [],
+    },
   };
-  const uncategorizedCommits: Commit[] = [];
+  // const uncategorizedCommits: Commit[] = [];
 
   const changes: string[] = [];
   const tasks: string[] = [];
@@ -119,6 +129,10 @@ export async function commitParser(
     // Check if commit message matches to any of the defined categories
     let categoryMatch = false;
     Object.keys(commitGroups).some(category => {
+      if (category === 'release' || category === 'others') {
+        categoryMatch = false;
+        return false;
+      }
       // Match with or without scope
       if (message.startsWith(`${category}:`) || message.startsWith(`${category}(`)) {
         commitGroups[category].commits.push(commit);
@@ -127,7 +141,14 @@ export async function commitParser(
       }
       return false;
     });
-    if (!categoryMatch) uncategorizedCommits.push(commit);
+    if (!categoryMatch) {
+      if (/\bv?\d+(\.\d+)+[-\w]*\b/g.test(message)) {
+        commitGroups.release.commits.push(commit);
+      } else {
+        commitGroups.others.commits.push(commit);
+        // uncategorizedCommits.push(commit);
+      }
+    }
   };
 
   const prRegExp = new RegExp('(\\(#\\d+\\))', 'gmi');
@@ -196,7 +217,7 @@ export async function commitParser(
     // Detect if commit message has Angular format
     if (/(\w+\([a-zA-Z_-]+\)|\w+|\([a-zA-Z_-]+\)):/.test(message)) {
       // Remove group information for changelog (e.g. messages with categories)
-      message = message.split(':')[1].trim();
+      message = message.startsWith(':') ? message.trim() : message.split(':')[1].trim();
     }
     // Always capitalize commit messages
     message = `${message[0].toUpperCase()}${message.slice(1)}`;
@@ -209,8 +230,6 @@ export async function commitParser(
     changes.push(sha);
   };
 
-  uncategorizedCommits.forEach(formatCommit);
-
   Object.keys(commitGroups).forEach(category => {
     const { title, commits: groupCommits } = commitGroups[category];
     if (groupCommits.length !== 0) {
@@ -218,6 +237,8 @@ export async function commitParser(
       groupCommits.forEach(formatCommit);
     }
   });
+
+  // uncategorizedCommits.forEach(formatCommit);
 
   core.setOutput('changes', JSON.stringify(changes));
   core.setOutput('tasks', JSON.stringify(tasks));
