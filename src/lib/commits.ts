@@ -19,6 +19,7 @@ interface Commit {
  * @param taskPrefix
  * @param taskBaseUrl
  * @param commitScope
+ * @param headTag
  */
 export async function commitParser(
   github: GitHub,
@@ -26,6 +27,7 @@ export async function commitParser(
   taskPrefix = 'JIRA-',
   taskBaseUrl?: string,
   commitScope?: string,
+  headTag?: string,
 ): Promise<{
   nextVersionType: VersionType;
   changes: string;
@@ -114,7 +116,7 @@ export async function commitParser(
     owner,
     repo,
     base: baseRef,
-    head: context.sha,
+    head: headTag || context.sha,
   });
   const {
     data: { commits },

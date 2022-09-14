@@ -26,6 +26,7 @@ export async function run() {
     const templatePath = core.getInput('templatePath', { required: true });
     const draft = core.getInput('draft', { required: false }) === 'true' || false;
     const prerelease = core.getInput('prerelease', { required: false }) === 'true' || false;
+    const headTag = core.getInput('releaseTag', { required: false });
 
     const diffInfo = await commitParser(
       github,
@@ -33,14 +34,14 @@ export async function run() {
       taskPrefix,
       taskBaseUrl,
       app,
+      headTag,
     );
     const { changes, tasks, pullRequests } = diffInfo;
     let { nextVersionType } = diffInfo;
     // Force next version as release candidate if prerelease draft is created
     if (prerelease) nextVersionType = VersionType.prerelease;
 
-    const releaseTag =
-      core.getInput('releaseTag', { required: false }) ||
+    const releaseTag = headTag ||
       (await bumpVersion(github, tagPrefix, nextVersionType, baseTag));
     if (pushTag) {
       createGitTag(github, releaseTag);
