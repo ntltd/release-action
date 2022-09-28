@@ -219,7 +219,7 @@ export async function commitParser(
     // Detect if commit message has Angular format
     if (/(\w+\([a-zA-Z_-]+\)|\w+|\([a-zA-Z_-]+\)):/.test(message)) {
       // Remove group information for changelog (e.g. messages with categories)
-      message = message.startsWith(':') ? message.trim() : message.split(':')[1].trim();
+      message = message.startsWith(':') ? message.trim() : message.split(':').slice(1).join(':').trim();
     }
     // Always capitalize commit messages
     message = `${message[0].toUpperCase()}${message.slice(1)}`;
