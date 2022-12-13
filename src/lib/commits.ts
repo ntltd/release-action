@@ -124,6 +124,12 @@ export async function commitParser(
 
   const categorizeCommit = (commit: Commit) => {
     const { message } = commit;
+    
+    // Skip version management or other non-relevant commits
+    if (message.includes('TW-25')){
+      return;
+    }
+    
     // Skip if scope check is required and commit does not have it
     if (commitScope && !message.includes(`(${commitScope}):`)) {
       return;
