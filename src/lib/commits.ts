@@ -28,6 +28,7 @@ export async function commitParser(
   taskBaseUrl?: string,
   commitScope?: string,
   headTag?: string,
+  ignoreCommitKeywords?: string[]
 ): Promise<{
   nextVersionType: VersionType;
   changes: string;
@@ -126,7 +127,7 @@ export async function commitParser(
     const { message } = commit;
     
     // Skip version management or other non-relevant commits
-    if (message.includes('TW-25')){
+    if (ignoreCommitKeywords && ignoreCommitKeywords.some(keyword => message.includes(keyword))) {
       return;
     }
     
