@@ -27,7 +27,8 @@ export async function run() {
     const draft = core.getInput('draft', { required: false }) === 'true' || false;
     const prerelease = core.getInput('prerelease', { required: false }) === 'true' || false;
     const headTag = core.getInput('releaseTag', { required: false });
-    const ignoreCommitKeywords = core.getInput('ignore-commit-keywords', { required: false });
+    const ignoreCommitKeywordsString = core.getInput('ignore-commit-keywords', { required: false });
+    const ignoreCommitKeywords = ignoreCommitKeywordsString ? ignoreCommitKeywordsString.split(',') : [];
 
     const diffInfo = await commitParser(
       github,
@@ -36,7 +37,7 @@ export async function run() {
       taskBaseUrl,
       app,
       headTag,
-      ignoreCommitKeywords.split(',')
+      ignoreCommitKeywords
     );
     const { changes, tasks, pullRequests } = diffInfo;
     let { nextVersionType } = diffInfo;
