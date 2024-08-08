@@ -182,6 +182,7 @@ export async function commitParser(
     // Retrieve task information
     // eslint-disable-next-line @typescript-eslint/prefer-regexp-exec
     const taskMatch = message.match(taskRegExp);
+    console.log("tester");
     if (taskMatch) taskMatch.forEach(task => tasks.push(task));
     // Retrieve specific bump key words
     const majorMatch = majorRegExp.exec(message);
