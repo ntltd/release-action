@@ -18,6 +18,7 @@ interface Commit {
  * @param baseRef
  * @param taskPrefix
  * @param taskBaseUrl
+ * @param releaseReference
  * @param commitScope
  */
 export async function commitParser(
@@ -26,6 +27,7 @@ export async function commitParser(
   taskPrefix = 'JIRA-',
   taskBaseUrl?: string,
   commitScope?: string,
+  releaseReference?: string,
 ): Promise<{
   nextVersionType: VersionType;
   changes: string;
@@ -114,7 +116,7 @@ export async function commitParser(
     owner,
     repo,
     base: baseRef,
-    head: context.sha,
+    head: releaseReference || context.sha,
   });
   const {
     data: { commits },
@@ -182,7 +184,7 @@ export async function commitParser(
     // Retrieve task information
     // eslint-disable-next-line @typescript-eslint/prefer-regexp-exec
     const taskMatch = message.match(taskRegExp);
-    console.log("tester");
+
     if (taskMatch) taskMatch.forEach(task => tasks.push(task));
     // Retrieve specific bump key words
     const majorMatch = majorRegExp.exec(message);
