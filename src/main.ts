@@ -26,7 +26,7 @@ export async function run() {
     const templatePath = core.getInput('templatePath', { required: true });
     const draft = core.getInput('draft', { required: false }) === 'true' || false;
     const prerelease = core.getInput('prerelease', { required: false }) === 'true' || false;
-    const releaseReference = core.getInput('releaseReference,', { required: false });
+    const releaseReference = core.getInput('releaseReference', { required: false });
 
 
     const diffInfo = await commitParser(

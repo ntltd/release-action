@@ -81,6 +81,7 @@ describe('run', () => {
       taskPrefix,
       undefined,
       undefined,
+      undefined
     );
     expect(renderReleaseName).toBeCalledWith(releaseVersion, undefined);
     expect(renderReleaseBody).toBeCalledWith(
@@ -117,6 +118,8 @@ describe('run', () => {
     const releaseName = 'fake-app';
     const releaseTag = `mycustomprefix-1.0.6`;
     const taskBaseUrl = 'https://myfaketask.url';
+    const releaseRef = 'v1.0.5';
+
     (getInput as jest.Mock).mockImplementation((name: string) => {
       switch (name) {
         case 'app':
@@ -145,6 +148,8 @@ describe('run', () => {
           return templatePath;
         case 'token':
           return token;
+        case 'releaseReference':
+          return releaseRef;
         default:
           return undefined;
       }
@@ -153,7 +158,7 @@ describe('run', () => {
     await run();
 
     expect(retrieveLastReleasedVersion).not.toBeCalled();
-    expect(commitParser).toBeCalledWith(expect.any(GitHub), baseTag, taskPrefix, taskBaseUrl, app);
+    expect(commitParser).toBeCalledWith(expect.any(GitHub), baseTag, taskPrefix, taskBaseUrl, app, releaseRef);
     expect(renderReleaseBody).toBeCalledWith(
       templatePath,
       app,
