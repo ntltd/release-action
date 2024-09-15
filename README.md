@@ -115,20 +115,21 @@ jobs:
 
 ### Inputs
 
-| Name | Required | Description |
-| :--- | :--- | :--- |
-| **app** | `false` | The name of the app involved in the release. It creates a tag and render commits for a specific scope, based on the given app name. Scopes from commits are analyzed for commits that follow the Angular commit style (e.g. `<type>(<app>): <commit>`). |
-| **baseTag** | `false` | The tag that will be used as base for git commit comparison, instead of the automatic detection of latest published release. The commits will be formatted into a Markdown list and replaced into the `$CHANGES` variable for the given `templatePath` template file. |
-| **bumpProtection** | `false`<br />(default `false`) | Propose PATCH version bumps whenever a MINOR or MAJOR is detected in a diff that had a previous MINOR or MAJOR bump. See [multiple minor and major bump protection](#multiple-minor-and-major-bump-protection). |
-| **draft** | `false`<br />(default `true`) | Publish release draft. |
-| **prerelease** | `false` | Mark release as prerelease when creating. This will ignore `major`, `minor` and `patch` bump suggestions and propose a [prerelease](https://github.com/npm/node-semver#prerelease-tags). |
-| **pushTag** | `false`<br />(default `false`) | Creates and pushes the automatic calculated tag before creating the release. Useful if you want the action to handle tags for you when publishing drafts. By default, a release draft won't create the tag, which only happens when it is published. |
-| **releaseName** | `false`<br />(default `<app> <version>`) | The title of the release. |
-| **releaseTag** | `true` | The git tag that belongs to the release. |
-| **taskBaseUrl** | `false` | The base url to append for a detected task (do not set a trailing `/`). By default, it will create a url based on your Github organization (e.g. `https://myorg.atlassian.net/browse`). |
-| **taskPrefix** | `false`<br />(default `JIRA-`) | The prefix that identifies task ids in the commits. |
-| **templatePath** | `true` | The path for the Markdown template that will be used to create the release body, relative to `.github/`. |
-| **token** | `true` | The token to access Github's API. |
+| Name               | Required                                 | Description                                                                                                                                                                                                                                                           |
+|:-------------------|:-----------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **app**            | `false`                                  | The name of the app involved in the release. It creates a tag and render commits for a specific scope, based on the given app name. Scopes from commits are analyzed for commits that follow the Angular commit style (e.g. `<type>(<app>): <commit>`).               |
+| **baseTag**        | `false`                                  | The tag that will be used as base for git commit comparison, instead of the automatic detection of latest published release. The commits will be formatted into a Markdown list and replaced into the `$CHANGES` variable for the given `templatePath` template file. |
+| **bumpProtection** | `false`<br />(default `false`)           | Propose PATCH version bumps whenever a MINOR or MAJOR is detected in a diff that had a previous MINOR or MAJOR bump. See [multiple minor and major bump protection](#multiple-minor-and-major-bump-protection).                                                       |
+| **draft**          | `false`<br />(default `true`)            | Publish release draft.                                                                                                                                                                                                                                                |
+| **prerelease**     | `false`                                  | Mark release as prerelease when creating. This will ignore `major`, `minor` and `patch` bump suggestions and propose a [prerelease](https://github.com/npm/node-semver#prerelease-tags).                                                                              |
+| **pushTag**        | `false`<br />(default `false`)           | Creates and pushes the automatic calculated tag before creating the release. Useful if you want the action to handle tags for you when publishing drafts. By default, a release draft won't create the tag, which only happens when it is published.                  |
+| **releaseName**    | `false`<br />(default `<app> <version>`) | The title of the release.                                                                                                                                                                                                                                             |
+| **releaseTag**     | `true`                                   | The git tag that belongs to the release.                                                                                                                                                                                                                              |
+| **releaseReference**     | `false`                                  | The git tag that the release notes will be generated from                                                                                                                                                                                                             |
+| **taskBaseUrl**    | `false`                                  | The base url to append for a detected task (do not set a trailing `/`). By default, it will create a url based on your Github organization (e.g. `https://myorg.atlassian.net/browse`).                                                                               |
+| **taskPrefix**     | `false`<br />(default `JIRA-`)           | The prefix that identifies task ids in the commits.                                                                                                                                                                                                                   |
+| **templatePath**   | `true`                                   | The path for the Markdown template that will be used to create the release body, relative to `.github/`.                                                                                                                                                              |
+| **token**          | `true`                                   | The token to access Github's API.                                                                                                                                                                                                                                     |
 
 ### Outputs
 
